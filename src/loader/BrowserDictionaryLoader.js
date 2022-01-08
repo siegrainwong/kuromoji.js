@@ -37,6 +37,8 @@ BrowserDictionaryLoader.prototype = Object.create(DictionaryLoader.prototype);
  * @param {BrowserDictionaryLoader~onLoad} callback Callback function
  */
 BrowserDictionaryLoader.prototype.loadArrayBuffer = function (url, callback) {
+    // support extension path
+    url = url.replaceAll('extension:/', 'extension://')
     var xhr = new XMLHttpRequest();
     xhr.open("GET", url, true);
     xhr.responseType = "arraybuffer";
